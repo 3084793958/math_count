@@ -9,7 +9,7 @@
 #define DEBUG_Cout(a) cout<<#a<<":"<<a<<endl
 //#define Insert(name,t1,v1,t2,v2) name.insert(map<t1,t2>::value_type(v1,v2))
 using namespace std;
-struct Function
+static struct Function
 {
     string O(string x,float a1,float b1,float c1,float a2,float b2,float c2)
     {
@@ -180,7 +180,7 @@ struct Function
         return way;
     }
 }o;
-struct Re_Build
+static struct Re_Build
 {
     tuple<bool,string,float,float,float> o(string fc)
     {
