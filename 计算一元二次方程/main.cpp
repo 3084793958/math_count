@@ -3,6 +3,11 @@
 #include<algorithm>
 #include<sstream>
 #include<math.h>
+#include<list>
+#include<tuple>
+#include<ctype.h>
+#define DEBUG_Cout(a) cout<<#a<<":"<<a<<endl
+//#define Insert(name,t1,v1,t2,v2) name.insert(map<t1,t2>::value_type(v1,v2))
 using namespace std;
 struct Function
 {
@@ -175,26 +180,236 @@ struct Function
         return way;
     }
 }o;
+struct Re_Build
+{
+    tuple<bool,string,float,float,float> o(string fc)
+    {
+        tuple<bool,string,float,float,float> main_map;
+        float a=0,b=0,c=0;
+        list<string> fc_list;
+        int number_of_E=0;
+        string x;
+        for (int i=0;i<int(fc.size());i++)
+        {
+            string result=&fc[static_cast<unsigned>(i)];
+            if (result.size()!=1)
+            {
+                if (result.size()>=3)
+                {
+                    if (result[1]=='^'&&result[2]=='2')
+                    {
+                        result=result[0];
+                        result.append("^2");
+                        i+=2;
+                    }
+                    else
+                    {
+                        result=result[0];
+                    }
+                }
+                else
+                {
+                    result=result[0];
+                }
+                string result_next;
+                code:
+                    if (i+1<int(fc.size()))
+                    {
+                    result_next=&fc[static_cast<unsigned>(i+1)];
+                    if (result_next.size()!=1)
+                    {
+                        if (result_next.size()>=3)
+                        {
+                            if (result_next[1]=='^'&&result_next[2]=='2')
+                            {
+                                result_next=result_next[0];
+                                result_next.append("^2");
+                                i+=2;
+                            }
+                            else
+                            {
+                                result_next=result_next[0];
+                            }
+                        }
+                        else
+                        {
+                            result_next=result_next[0];
+                        }
+                    }
+                    }
+                if (result_next!="+"&&result_next!="-"&&result_next!="="&&result!="="&&!result_next.empty())
+                {
+                    result+=result_next;
+                    i++;
+                    result_next="";
+                    goto code;
+                }
+            }
+            fc_list.push_back(result);
+            if (result!="=")
+            {
+                if (x.empty())
+                {
+                    x=result;
+                    bool found_x=false;
+                    for (int i=0;i<int(x.size());i++)
+                    {
+                        string result_of_x_doing;
+                        result_of_x_doing=x[static_cast<unsigned>(i)];
+                        if (isdigit(x[static_cast<unsigned>(i)]))
+                        {}
+                        else
+                        {
+                            if (result_of_x_doing!="^"&&result_of_x_doing!="."&&result_of_x_doing!="+"&&result_of_x_doing!="-")
+                            {
+                                x=result_of_x_doing;
+                                found_x=true;
+                            }
+                        }
+                    }
+                    if (!found_x)
+                    {
+                        x="";
+                    }
+                }
+            }
+            else
+            {
+                number_of_E+=1;
+            }
+        }
+        if (number_of_E==1)
+        {
+            bool pass_E=false;
+            for (auto const &i:fc_list)
+            {
+                int x_number=0;
+                bool main_type=false;
+                if (i=="=")
+                {
+                    pass_E=true;
+                }
+                for (int j=0;j<int(i.size());j++)
+                {
+                    string k;
+                    string bl_name;
+                    k=i[static_cast<unsigned>(j)];
+                    if (k==x)
+                    {
+                        main_type=true;
+                        x_number+=1;
+                        if (int(i.size())>j+2)
+                        {
+                            if (i[static_cast<unsigned>(j+1)]=='^'&&i[static_cast<unsigned>(j+2)]=='2')
+                            {
+                                bl_name=x+"^2";
+                                string a_string=i;
+                                a_string.erase(static_cast<unsigned>(j));
+                                int new_a;
+                                if (a_string=="+")
+                                {
+                                    new_a=1;
+                                }
+                                else if (a_string=="-")
+                                {
+                                    new_a=-1;
+                                }
+                                else if (a_string.empty())
+                                {
+                                    new_a=1;
+                                }
+                                else
+                                {
+                                    istringstream iss(a_string);
+                                    iss>>new_a;
+                                }
+                                if (pass_E)
+                                {
+                                    a-=new_a;
+                                }
+                                else
+                                {
+                                    a+=new_a;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            bl_name=x;
+                            string b_string=i;
+                            b_string.erase(static_cast<unsigned>(j));
+                            int new_b;
+                            if (b_string=="+")
+                            {
+                                new_b=1;
+                            }
+                            else if (b_string=="-")
+                            {
+                                new_b=-1;
+                            }
+                            else if (b_string.empty())
+                            {
+                                new_b=1;
+                            }
+                            else
+                            {
+                                istringstream iss(b_string);
+                                iss>>new_b;
+                            }
+                            if (pass_E)
+                            {
+                                b-=new_b;
+                            }
+                            else
+                            {
+                                b+=new_b;
+                            }
+                        }
+                    }
+                }
+                if (!main_type&&i!="=")
+                {
+                    string c_string=i;
+                    int new_c;
+                    istringstream iss(c_string);
+                    iss>>new_c;
+                    if (pass_E)
+                    {
+                        c-=new_c;
+                    }
+                    else
+                    {
+                        c+=new_c;
+                    }
+                }
+                if (x_number>1)
+                {
+                    cout<<"end"<<endl;
+                    main_map=make_tuple(false,"None",0,0,0);
+                }
+            }
+            main_map=make_tuple(true,x,a,b,c);
+        }
+        else
+        {
+            cout<<"end"<<endl;
+            main_map=make_tuple(false,"None",0,0,0);
+        }
+        return main_map;
+    }
+}O;
 int main()
 {
-    cout<<"a1*x^2 + b1*x+ c1 = a2*x^2 + b2*x + c2"<<endl;
+    string fc;
+    cout<<"方程:";
+    cin>>fc;
+    tuple<bool,string,float,float,float> map_main=O.o(fc);
+    bool Can_Use;
+    float a,b,c;
     string x;
-    float a1,b1,c1,a2,b2,c2;
-    cout<<"x(string)";
-    cin>>x;
-    cout<<"a1(float)";
-    cin>>a1;
-    cout<<"b1(float)";
-    cin>>b1;
-    cout<<"c1(float)";
-    cin>>c1;
-    cout<<"a2(float)";
-    cin>>a2;
-    cout<<"b2(float)";
-    cin>>b2;
-    cout<<"c2(float)";
-    cin>>c2;
-    cout<<"===================="<<endl;
-    cout<<o.O(x,a1,b1,c1,a2,b2,c2)<<endl;
-    cout<<"===================="<<endl;
+    tie(Can_Use,x,a,b,c)=map_main;
+    if(Can_Use)
+    {
+        cout<<o.O(x,a,b,c,0,0,0)<<endl;
+    }
 }
