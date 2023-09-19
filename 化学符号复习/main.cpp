@@ -269,7 +269,31 @@ int main()
     Insert(name_map,int,47,string,"朱颖旗");
     Insert(name_map,int,48,string,"黄雅英");
     Insert(name_map,int,49,string,"刘润鑫");
-    cout<<"输入模式1:字母2:文字3:混合"<<endl;
+    list<list<string>> show_as_text;
+    list<string> show_one_type;
+    list<string> show_one_name;
+    show_one_type.push_back("H2O");
+    show_one_name.push_back("一氧化二氢");
+    show_one_type.push_back("O2");
+    show_one_name.push_back("氧气");
+    show_one_type.push_back("CO2");
+    show_one_name.push_back("二氧化碳");
+    show_one_type.push_back("P2O5");
+    show_one_name.push_back("五氧化二磷");
+    show_one_type.push_back("N2");
+    show_one_name.push_back("氖气");
+    show_one_type.push_back("SO2");
+    show_one_name.push_back("二氧化硫");
+    show_one_type.push_back("CO");
+    show_one_name.push_back("一氧化碳");
+    show_one_type.push_back("NO2");
+    show_one_name.push_back("二氧化氮");
+    show_one_type.push_back("Fe3O4");
+    show_one_name.push_back("四氧化三铁");
+    show_as_text.push_back({"4","[P]+[O2]--[3]-->[P2O5]","红磷","氧气","点燃","五氧化二磷"});
+    show_as_text.push_back({"4","[S]+[O2]--[3]-->[SO2]","硫","氧气","点燃","二氧化硫"});
+    show_as_text.push_back({"4","[Fe]+[O2]--[3]-->[Fe3O4]","铁","氧气","点燃","四氧化三铁"});
+    cout<<"输入模式1:字母2:文字3:混合4:卷"<<endl;
     string choose_type;
     cin>>choose_type;
     cout<<"输入方式1:练习2:考试30题"<<endl;
@@ -444,6 +468,85 @@ int main()
                 cout<<"次数:"<<time<<endl<<"分数:"<<point<<endl<<"=========="<<endl;
             }
         }
+    }
+    else if (choose_type=="4")
+    {
+        while (time<30)
+        {
+            int random_number=getRand(1,2)-1;
+            if (random_number==0)
+            {
+                /*
+                int this_choose_number=getRand(0,99);
+            string send_string;
+            string other_string;
+            list<string>::iterator chinese_type=Chinese_main.begin();
+            list<string>::iterator type_type=Type_main.begin();
+            advance(type_type,this_choose_number);
+            advance(chinese_type,this_choose_number);
+            if (choose_way_to_do==0)
+            {
+                send_string=*chinese_type;
+                other_string=*type_type;
+            }
+            else if (choose_way_to_do==1)
+            {
+                send_string=*type_type;
+                other_string=*chinese_type;
+            }
+            cout<<send_string<<endl;
+            string result_string;
+            cin>>result_string;
+            if (result_string=="-20")
+            {
+                goto new_start;
+            }
+            else if (result_string==other_string)
+            {
+                cout<<"正确"<<endl<<"=========="<<endl;
+                if (choose_type_2=="2")
+                {
+                    point++;
+                    time++;
+                }
+            }
+            else
+            {
+                cout<<"错误"<<endl;
+                if (choose_way_to_do==0)
+                {
+                    cout<<this_choose_number+1<<"号元素"<<endl<<send_string<<endl<<other_string<<endl<<"=========="<<endl;
+                }
+                else if (choose_way_to_do==1)
+                {
+                    cout<<this_choose_number+1<<"号元素"<<endl<<other_string<<endl<<send_string<<endl<<"=========="<<endl;
+                }
+                if (choose_type_2=="2")
+                {
+                    point--;
+                    time++;
+                }
+                int name_number=0;
+                while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
+                {
+                    name_number=getRand(0,99);
+                }
+                cout<<"搞什么,"<<name_map[name_number]<<"都默写到"<<getRand(100,118)<<"号元素了!快点!"<<endl<<"=========="<<endl;
+            }
+            if (choose_type_2=="2")
+            {
+                cout<<"次数:"<<time<<endl<<"分数:"<<point<<endl<<"=========="<<endl;
+            }
+                */
+            }
+            else if (random_number==1)
+            {}
+            if (choose_type_2=="2")
+            {
+                time++;
+            }
+        }
+        
     }
     return 0;
 }
