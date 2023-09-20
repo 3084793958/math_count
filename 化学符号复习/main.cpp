@@ -270,6 +270,8 @@ int main()
     Insert(name_map,int,48,string,"黄雅英");
     Insert(name_map,int,49,string,"刘润鑫");
     list<list<string>> show_as_text;
+    list<list<string>> show_as_type;
+    list<list<string>> choose_A_B_C_D;
     list<string> show_one_type;
     list<string> show_one_name;
     show_one_type.push_back("H2O");
@@ -281,7 +283,7 @@ int main()
     show_one_type.push_back("P2O5");
     show_one_name.push_back("五氧化二磷");
     show_one_type.push_back("N2");
-    show_one_name.push_back("氖气");
+    show_one_name.push_back("氮气");
     show_one_type.push_back("SO2");
     show_one_name.push_back("二氧化硫");
     show_one_type.push_back("CO");
@@ -290,16 +292,26 @@ int main()
     show_one_name.push_back("二氧化氮");
     show_one_type.push_back("Fe3O4");
     show_one_name.push_back("四氧化三铁");
-    show_as_text.push_back({"4","[P]+[O2]--[3]-->[P2O5]","红磷","氧气","点燃","五氧化二磷"});
-    show_as_text.push_back({"4","[S]+[O2]--[3]-->[SO2]","硫","氧气","点燃","二氧化硫"});
-    show_as_text.push_back({"4","[Fe]+[O2]--[3]-->[Fe3O4]","铁","氧气","点燃","四氧化三铁"});
-    cout<<"输入模式1:字母2:文字3:混合4:卷"<<endl;
+    show_as_text.push_back({"红磷燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","红磷","氧气","点燃","五氧化二磷","[红磷]+[氧气]--[点燃]-->[五氧化二磷]"});
+    show_as_text.push_back({"木炭在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","碳","氧气","点燃","二氧化碳","[碳]+[氧气]--[点燃]-->[二氧化碳]"});
+    show_as_text.push_back({"硫燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","硫","氧气","点燃","二氧化硫","[硫]+[氧气]--[点燃]-->[二氧化硫]"});
+    show_as_text.push_back({"铁丝在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","铁","氧气","点燃","四氧化三铁","[铁]+[氧气]--[点燃]-->[四氧化三铁]"});
+    show_as_type.push_back({"红磷燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","P","O2","点燃","P2O5","[P]+[O2]--[点燃]-->[P2O5]"});
+    show_as_type.push_back({"木炭在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","C","O2","点燃","CO2","[C]+[O2]--[点燃]-->[CO2]"});
+    show_as_type.push_back({"硫燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","S","O2","点燃","SO2","[S]+[O2]--[点燃]-->[SO2]"});
+    show_as_type.push_back({"铁丝在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","Fe","O2","点燃","Fe3O4","[Fe]+[O2]--[点燃]-->[Fe3O4]"});
+    choose_A_B_C_D.push_back({"硫在氧气中燃烧是化学反应的主要依据","硫粉逐渐减少","发出明亮的蓝紫色火焰","生成有刺激性气味的气体","放出大量的热","3","硫在氧气中燃烧是化学反应的主要依据\n生成有刺激性气味的气体(描述新产物)"});
+    choose_A_B_C_D.push_back({"下列关于氧气的化学性质实验现象的描述,正确的是","磷在氧气中燃烧生成大量的烟雾","木炭在氧气中燃烧生成二氧化碳","硫在氧气中燃烧发出淡蓝色的火焰","放出大量的热","4","列关于氧气的化学性质实验现象的描述,正确的是\n磷在氧气中燃烧生成大量的烟雾(不能说烟雾,只能说白烟)\n木炭在氧气中燃烧生成二氧化碳(二氧化碳看不见)\n硫在氧气中燃烧发出淡蓝色的火焰(在空气中)"});
+    cout<<"输入模式1:字母2:文字3:混合4:卷-20:退出"<<endl;
     string choose_type;
-    cin>>choose_type;
-    cout<<"输入方式1:练习2:考试30题"<<endl;
     string choose_type_2;
+    cin>>choose_type;
+    if(choose_type!="-20")
+    {
+    cout<<"输入方式1:练习2:考试30题"<<endl;
     cin>>choose_type_2;
     cout<<"输入-20回到初始"<<endl;
+    }
     if (choose_type=="1")
     {
         while (time<30)
@@ -341,7 +353,7 @@ int main()
                 int name_number=0;
                 while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
                 {
-                    name_number=getRand(0,99);
+                    name_number=getRand(0,49);
                 }
                 cout<<"搞什么,"<<name_map[name_number]<<"都默写到"<<getRand(100,118)<<"号元素了!快点!"<<endl<<"=========="<<endl;
             }
@@ -392,7 +404,7 @@ int main()
                 int name_number=0;
                 while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
                 {
-                    name_number=getRand(0,99);
+                    name_number=getRand(0,49);
                 }
                 cout<<"搞什么,"<<name_map[name_number]<<"都默写到"<<getRand(100,118)<<"号元素了!快点!"<<endl<<"=========="<<endl;
             }
@@ -459,7 +471,7 @@ int main()
                 int name_number=0;
                 while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
                 {
-                    name_number=getRand(0,99);
+                    name_number=getRand(0,49);
                 }
                 cout<<"搞什么,"<<name_map[name_number]<<"都默写到"<<getRand(100,118)<<"号元素了!快点!"<<endl<<"=========="<<endl;
             }
@@ -473,15 +485,15 @@ int main()
     {
         while (time<30)
         {
-            int random_number=getRand(1,2)-1;
+            int random_number=getRand(1,3)-1;
             if (random_number==0)
             {
-                /*
-                int this_choose_number=getRand(0,99);
+                int this_choose_number=getRand(0,8);
+                int choose_way_to_do=getRand(1,2)-1;
             string send_string;
             string other_string;
-            list<string>::iterator chinese_type=Chinese_main.begin();
-            list<string>::iterator type_type=Type_main.begin();
+            list<string>::iterator chinese_type=show_one_name.begin();
+            list<string>::iterator type_type=show_one_type.begin();
             advance(type_type,this_choose_number);
             advance(chinese_type,this_choose_number);
             if (choose_way_to_do==0)
@@ -515,11 +527,11 @@ int main()
                 cout<<"错误"<<endl;
                 if (choose_way_to_do==0)
                 {
-                    cout<<this_choose_number+1<<"号元素"<<endl<<send_string<<endl<<other_string<<endl<<"=========="<<endl;
+                    cout<<send_string<<endl<<other_string<<endl<<"=========="<<endl;
                 }
                 else if (choose_way_to_do==1)
                 {
-                    cout<<this_choose_number+1<<"号元素"<<endl<<other_string<<endl<<send_string<<endl<<"=========="<<endl;
+                    cout<<other_string<<endl<<send_string<<endl<<"=========="<<endl;
                 }
                 if (choose_type_2=="2")
                 {
@@ -529,24 +541,397 @@ int main()
                 int name_number=0;
                 while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
                 {
-                    name_number=getRand(0,99);
+                    name_number=getRand(0,49);
                 }
-                cout<<"搞什么,"<<name_map[name_number]<<"都默写到"<<getRand(100,118)<<"号元素了!快点!"<<endl<<"=========="<<endl;
+                cout<<"搞什么,"<<name_map[name_number]<<"全都会默写了!快点!"<<endl<<"=========="<<endl;
+            }
+            }
+            else if (random_number==1)
+            {
+                int this_choose_number=getRand(0,3);
+                int number_in_first_for=0;
+                int choose_show_name_or_type=getRand(1,2)-1;
+                bool pass_all=true;
+                if (choose_show_name_or_type==0)
+                {
+                    for (const auto i:show_as_text)
+                    {
+                        if (number_in_first_for==this_choose_number)
+                        {
+                            int second_for_number=0;
+                            for (const auto k:i)
+                            {
+                                if (second_for_number==0)
+                                {
+                                    cout<<k<<endl;
+                                }
+                                else if (second_for_number==i.size()-1)
+                                {
+                                    if (pass_all)
+                                    {
+                                        cout<<"正确"<<endl;
+                                        cout<<"=========="<<endl;
+                                        cout<<k<<endl;
+                                        cout<<"=========="<<endl;
+                                        if (choose_type_2=="2")
+                                        {
+                                            point++;
+                                            time++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        cout<<"错误"<<endl;
+                                        cout<<"=========="<<endl;
+                                        cout<<k<<endl;
+                                        cout<<"=========="<<endl;
+                                        int name_number=0;
+                                        while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
+                                        {
+                                            name_number=getRand(0,49);
+                                        }
+                                        cout<<"搞什么,"<<name_map[name_number]<<"全都会默写了!快点!"<<endl<<"=========="<<endl;
+                                        if (choose_type_2=="2")
+                                        {
+                                            point--;
+                                            time++;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    string this_result;
+                                    cout<<"["<<second_for_number<<"]:"<<endl;
+                                    cin>>this_result;
+                                    cout<<"=========="<<endl;
+                                    if (this_result=="-20")
+                                    {
+                                        goto new_start;
+                                    }
+                                    if (this_result!=k)
+                                    {
+                                        pass_all=false;
+                                    }
+                                }
+                                second_for_number++;
+                            }
+                        }
+                        number_in_first_for++;
+                    }
+                }
+                else if (choose_show_name_or_type==1)
+                {
+                    for (const auto i:show_as_type)
+                    {
+                        if (number_in_first_for==this_choose_number)
+                        {
+                            int second_for_number=0;
+                            for (const auto k:i)
+                            {
+                                if (second_for_number==0)
+                                {
+                                    cout<<k<<endl;
+                                }
+                                else if (second_for_number==i.size()-1)
+                                {
+                                    if (pass_all)
+                                    {
+                                        cout<<"正确"<<endl;
+                                        cout<<"=========="<<endl;
+                                        cout<<k<<endl;
+                                        cout<<"=========="<<endl;
+                                        if (choose_type_2=="2")
+                                        {
+                                            point++;
+                                            time++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        cout<<"错误"<<endl;
+                                        cout<<"=========="<<endl;
+                                        cout<<k<<endl;
+                                        cout<<"=========="<<endl;
+                                        int name_number=0;
+                                        while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
+                                        {
+                                            name_number=getRand(0,49);
+                                        }
+                                        cout<<"搞什么,"<<name_map[name_number]<<"全都会默写了!快点!"<<endl<<"=========="<<endl;
+                                        if (choose_type_2=="2")
+                                        {
+                                            point--;
+                                            time++;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    string this_result;
+                                    cout<<"["<<second_for_number<<"]:"<<endl;
+                                    cin>>this_result;
+                                    cout<<"=========="<<endl;
+                                    if (this_result=="-20")
+                                    {
+                                        goto new_start;
+                                    }
+                                    if (this_result!=k)
+                                    {
+                                        pass_all=false;
+                                    }
+                                }
+                                second_for_number++;
+                            }
+                        }
+                        number_in_first_for++;
+                    }
+                }
+            }
+            else if (random_number==2)
+            {
+                int this_choose_number=getRand(0,choose_A_B_C_D.size()-1);
+                int A_to_what=getRand(1,4),B_to_what=0,C_to_what=0,D_to_what=0;
+                while (B_to_what==A_to_what||B_to_what==0)
+                {
+                    B_to_what=getRand(1,4);
+                }
+                while (C_to_what==A_to_what||C_to_what==B_to_what||C_to_what==0)
+                {
+                    C_to_what=getRand(1,4);
+                }
+                while (D_to_what==A_to_what||D_to_what==B_to_what||D_to_what==C_to_what||D_to_what==0)
+                {
+                    D_to_what=getRand(1,4);
+                }
+                int first_get_time=0;
+                string need_a,need_b,need_c,need_d,need_all;
+                int true_number=0;
+                for (const auto i:choose_A_B_C_D)
+                {
+                    if (first_get_time==this_choose_number)
+                    {
+                        int second_get_time=0;
+                        for (const auto k:i)
+                        {
+                            if (second_get_time==0)
+                            {
+                                cout<<k<<endl;
+                            }
+                            else if (second_get_time==1)
+                            {
+                                need_a=k;
+                            }
+                            else if (second_get_time==2)
+                            {
+                                need_b=k;
+                            }
+                            else if (second_get_time==3)
+                            {
+                                need_c=k;
+                            }
+                            else if (second_get_time==4)
+                            {
+                                need_d=k;
+                            }
+                            else if (second_get_time==i.size()-2)
+                            {
+                                true_number=stoi(k);
+                            }
+                            else if (second_get_time==i.size()-1)
+                            {
+                                need_all=k;
+                            }
+                            second_get_time++;
+                        }
+                    }
+                    first_get_time++;
+                }
+                if (A_to_what==1)
+                {
+                    cout<<"A."<<need_a<<endl;
+                }
+                else if (B_to_what==1)
+                {
+                    cout<<"A."<<need_b<<endl;
+                }
+                else if (C_to_what==1)
+                {
+                    cout<<"A."<<need_c<<endl;
+                }
+                else if (D_to_what==1)
+                {
+                    cout<<"A."<<need_d<<endl;
+                }
+                if (A_to_what==2)
+                {
+                    cout<<"B."<<need_a<<endl;
+                }
+                else if (B_to_what==2)
+                {
+                    cout<<"B."<<need_b<<endl;
+                }
+                else if (C_to_what==2)
+                {
+                    cout<<"B."<<need_c<<endl;
+                }
+                else if (D_to_what==2)
+                {
+                    cout<<"B."<<need_d<<endl;
+                }
+                if (A_to_what==3)
+                {
+                    cout<<"C."<<need_a<<endl;
+                }
+                else if (B_to_what==3)
+                {
+                    cout<<"C."<<need_b<<endl;
+                }
+                else if (C_to_what==3)
+                {
+                    cout<<"C."<<need_c<<endl;
+                }
+                else if (D_to_what==3)
+                {
+                    cout<<"C."<<need_d<<endl;
+                }
+                if (A_to_what==4)
+                {
+                    cout<<"D."<<need_a<<endl;
+                }
+                else if (B_to_what==4)
+                {
+                    cout<<"D."<<need_b<<endl;
+                }
+                else if (C_to_what==4)
+                {
+                    cout<<"D."<<need_c<<endl;
+                }
+                else if (D_to_what==4)
+                {
+                    cout<<"D."<<need_d<<endl;
+                }
+                cout<<"输入大写ABCD"<<endl;
+                string user_result;
+                cin>>user_result;
+                bool is_true=false;
+                if (user_result=="A")
+                {
+                    if (A_to_what==1&&true_number==1)
+                    {
+                        is_true=true;
+                    }
+                    if (B_to_what==1&&true_number==2)
+                    {
+                        is_true=true;
+                    }
+                    if (C_to_what==1&&true_number==3)
+                    {
+                        is_true=true;
+                    }
+                    if (D_to_what==1&&true_number==4)
+                    {
+                        is_true=true;
+                    }
+                }
+                if (user_result=="B")
+                {
+                    if (A_to_what==2&&true_number==1)
+                    {
+                        is_true=true;
+                    }
+                    if (B_to_what==2&&true_number==2)
+                    {
+                        is_true=true;
+                    }
+                    if (C_to_what==2&&true_number==3)
+                    {
+                        is_true=true;
+                    }
+                    if (D_to_what==2&&true_number==4)
+                    {
+                        is_true=true;
+                    }
+                }
+                if (user_result=="C")
+                {
+                    if (A_to_what==3&&true_number==1)
+                    {
+                        is_true=true;
+                    }
+                    if (B_to_what==3&&true_number==2)
+                    {
+                        is_true=true;
+                    }
+                    if (C_to_what==3&&true_number==3)
+                    {
+                        is_true=true;
+                    }
+                    if (D_to_what==3&&true_number==4)
+                    {
+                        is_true=true;
+                    }
+                }
+                if (user_result=="D")
+                {
+                    if (A_to_what==4&&true_number==1)
+                    {
+                        is_true=true;
+                    }
+                    if (B_to_what==4&&true_number==2)
+                    {
+                        is_true=true;
+                    }
+                    if (C_to_what==4&&true_number==3)
+                    {
+                        is_true=true;
+                    }
+                    if (D_to_what==4&&true_number==4)
+                    {
+                        is_true=true;
+                    }
+                }
+                if (is_true)
+                {
+                    cout<<"正确"<<endl;
+                    cout<<"=========="<<endl;
+                    cout<<need_all<<endl;
+                    cout<<"=========="<<endl;
+                    if (choose_type_2=="2")
+                    {
+                        point++;
+                        time++;
+                    }
+                }
+                else
+                {
+                    cout<<"错误"<<endl;
+                    cout<<"=========="<<endl;
+                    cout<<need_all<<endl;
+                    cout<<"=========="<<endl;
+                    int name_number=0;
+                    while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
+                    {
+                        name_number=getRand(0,49);
+                    }
+                    cout<<"搞什么,"<<name_map[name_number]<<"全都会做!快点!"<<endl<<"=========="<<endl;
+                    if (choose_type_2=="2")
+                    {
+                        point--;
+                        time++;
+                    }
+                }
             }
             if (choose_type_2=="2")
             {
                 cout<<"次数:"<<time<<endl<<"分数:"<<point<<endl<<"=========="<<endl;
             }
-                */
-            }
-            else if (random_number==1)
-            {}
-            if (choose_type_2=="2")
-            {
-                time++;
-            }
         }
-        
     }
+    else if (choose_type=="-20")
+    {
+        goto go_out;
+    }
+    goto new_start;
+    go_out:
     return 0;
 }
