@@ -223,6 +223,42 @@ int main()
     Chinese_main.push_back("锿");
     Type_main.push_back("Fm");
     Chinese_main.push_back("镄");
+    Type_main.push_back("Md");
+    Chinese_main.push_back("钔");
+    Type_main.push_back("No");
+    Chinese_main.push_back("锘");
+    Type_main.push_back("Lr");
+    Chinese_main.push_back("铹");
+    Type_main.push_back("Rf");
+    Chinese_main.push_back("𬬻");
+    Type_main.push_back("Db");
+    Chinese_main.push_back("𬭊");
+    Type_main.push_back("Sg");
+    Chinese_main.push_back("𬭳");
+    Type_main.push_back("Bh");
+    Chinese_main.push_back("𬭛");
+    Type_main.push_back("Hs");
+    Chinese_main.push_back("𬭶");
+    Type_main.push_back("Mt");
+    Chinese_main.push_back("鿏");
+    Type_main.push_back("Ds");
+    Chinese_main.push_back("𫟼");
+    Type_main.push_back("Rg");
+    Chinese_main.push_back("𬬭");
+    Type_main.push_back("Cn");
+    Chinese_main.push_back("鿔");
+    Type_main.push_back("Nh");
+    Chinese_main.push_back("鿭");
+    Type_main.push_back("Fl");
+    Chinese_main.push_back("𫓧");
+    Type_main.push_back("Mc");
+    Chinese_main.push_back("镆");
+    Type_main.push_back("Lv");
+    Chinese_main.push_back("𫟷");
+    Type_main.push_back("Ts");
+    Chinese_main.push_back("鿬");
+    Type_main.push_back("Og");
+    Chinese_main.push_back("鿫");
     Insert(name_map,int,1,string,"蔡伊灵");
     Insert(name_map,int,2,string,"曾力康");
     Insert(name_map,int,3,string,"曾斯锜");
@@ -275,7 +311,7 @@ int main()
     list<string> show_one_type;
     list<string> show_one_name;
     show_one_type.push_back("H2O");
-    show_one_name.push_back("一氧化二氢");
+    show_one_name.push_back("水");
     show_one_type.push_back("O2");
     show_one_name.push_back("氧气");
     show_one_type.push_back("CO2");
@@ -292,16 +328,34 @@ int main()
     show_one_name.push_back("二氧化氮");
     show_one_type.push_back("Fe3O4");
     show_one_name.push_back("四氧化三铁");
+    show_one_type.push_back("KMnO4");
+    show_one_name.push_back("高锰酸钾");
+    show_one_type.push_back("K2MnO4");
+    show_one_name.push_back("锰酸钾");
+    show_one_type.push_back("MnO2");
+    show_one_name.push_back("二氧化锰");
+    show_one_type.push_back("H2O2");
+    show_one_name.push_back("过氧化氢");
+    show_one_type.push_back("KClO3");
+    show_one_name.push_back("氯酸钾");
+    show_one_type.push_back("KCl");
+    show_one_name.push_back("氯化钾");
     show_as_text.push_back({"红磷燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","红磷","氧气","点燃","五氧化二磷","[红磷]+[氧气]--[点燃]-->[五氧化二磷]"});
     show_as_text.push_back({"木炭在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","碳","氧气","点燃","二氧化碳","[碳]+[氧气]--[点燃]-->[二氧化碳]"});
     show_as_text.push_back({"硫燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","硫","氧气","点燃","二氧化硫","[硫]+[氧气]--[点燃]-->[二氧化硫]"});
     show_as_text.push_back({"铁丝在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","铁","氧气","点燃","四氧化三铁","[铁]+[氧气]--[点燃]-->[四氧化三铁]"});
+    show_as_text.push_back({"高氧化锰制取氧气化学文字表达式([4]写二氧化锰,[5]写氧气):[1]--[2]-->[3]+[4]+[5]","高锰酸钾","加热","锰酸钾","二氧化锰","氧气","[高锰酸钾]--[加热]-->[锰酸钾]+[二氧化锰]+[氧气]"});
+    show_as_text.push_back({"过氧化氢制取氧气化学文字表达式([4]写氧气):[1]--[2]-->[3]+[4]","过氧化氢","二氧化锰","水","氧气","[过氧化氢]--[二氧化锰]-->[水]+[氧气]"});
+    show_as_text.push_back({"氯酸钾制取氧气化学文字表达式([5]写氧气):[1]--[2]/[3]-->[4]+[5]","氯酸钾","二氧化锰","加热","氯化钾","氧气","[氯酸钾]--[二氧化锰]/[加热]-->[氯化钾]+[氧气]"});
     show_as_type.push_back({"红磷燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","P","O2","点燃","P2O5","[P]+[O2]--[点燃]-->[P2O5]"});
     show_as_type.push_back({"木炭在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","C","O2","点燃","CO2","[C]+[O2]--[点燃]-->[CO2]"});
     show_as_type.push_back({"硫燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","S","O2","点燃","SO2","[S]+[O2]--[点燃]-->[SO2]"});
     show_as_type.push_back({"铁丝在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","Fe","O2","点燃","Fe3O4","[Fe]+[O2]--[点燃]-->[Fe3O4]"});
+    show_as_type.push_back({"高氧化锰制取氧气化学表达式([4]写MnO2,[5]写O2):[1]--[2]-->[3]+[4]+[5]","KMnO4","加热","K2MnO4","MnO2","O2","[KMnO4]--[加热]-->[K2MnO4]+[MnO2]+[O2]"});
+    show_as_type.push_back({"过氧化氢制取氧气文字表达式([4]写O2):[1]--[2]-->[3]+[4]","H2O2","MnO2","H2O","O2","[H2O2]--[MnO2]-->[H2O]+[O2]"});
+    show_as_type.push_back({"氯酸钾制取氧气文字表达式([5]写O2):[1]--[2]/[3]-->[4]+[5]","KClO3","MnO2","加热","KCl","O2","[KClO3]--[MnO2]/[加热]-->[KCl]+[O2]"});
     choose_A_B_C_D.push_back({"硫在氧气中燃烧是化学反应的主要依据","硫粉逐渐减少","发出明亮的蓝紫色火焰","生成有刺激性气味的气体","放出大量的热","3","硫在氧气中燃烧是化学反应的主要依据\n生成有刺激性气味的气体(描述新产物)"});
-    choose_A_B_C_D.push_back({"下列关于氧气的化学性质实验现象的描述,正确的是","磷在氧气中燃烧生成大量的烟雾","木炭在氧气中燃烧生成二氧化碳","硫在氧气中燃烧发出淡蓝色的火焰","放出大量的热","4","列关于氧气的化学性质实验现象的描述,正确的是\n磷在氧气中燃烧生成大量的烟雾(不能说烟雾,只能说白烟)\n木炭在氧气中燃烧生成二氧化碳(二氧化碳看不见)\n硫在氧气中燃烧发出淡蓝色的火焰(在空气中)"});
+    choose_A_B_C_D.push_back({"下列关于氧气的化学性质实验现象的描述,正确的是","磷在氧气中燃烧生成大量的烟雾","木炭在氧气中燃烧生成二氧化碳","硫在氧气中燃烧发出淡蓝色的火焰","放出大量的热","4","下列关于氧气的化学性质实验现象的描述,正确的是\n磷在氧气中燃烧生成大量的烟雾(不能说烟雾,只能说白烟)\n木炭在氧气中燃烧生成二氧化碳(二氧化碳看不见)\n硫在氧气中燃烧发出淡蓝色的火焰(在空气中)"});
     cout<<"输入模式1:字母2:文字3:混合4:卷-20:退出"<<endl;
     string choose_type;
     string choose_type_2;
@@ -316,7 +370,7 @@ int main()
     {
         while (time<30)
         {
-            int this_choose_number=getRand(0,99);
+            int this_choose_number=getRand(0,117);
             string send_string;
             string other_string;
             list<string>::iterator chinese_type=Chinese_main.begin();
@@ -367,7 +421,7 @@ int main()
     {
         while (time<30)
         {
-            int this_choose_number=getRand(0,99);
+            int this_choose_number=getRand(0,117);
             string send_string;
             string other_string;
             list<string>::iterator chinese_type=Chinese_main.begin();
@@ -419,7 +473,7 @@ int main()
         while (time<30)
         {
             int choose_way_to_do=getRand(1,2)-1;
-            int this_choose_number=getRand(0,99);
+            int this_choose_number=getRand(0,117);
             string send_string;
             string other_string;
             list<string>::iterator chinese_type=Chinese_main.begin();
@@ -488,7 +542,7 @@ int main()
             int random_number=getRand(1,3)-1;
             if (random_number==0)
             {
-                int this_choose_number=getRand(0,8);
+                int this_choose_number=getRand(0,16);
                 int choose_way_to_do=getRand(1,2)-1;
             string send_string;
             string other_string;
@@ -548,7 +602,7 @@ int main()
             }
             else if (random_number==1)
             {
-                int this_choose_number=getRand(0,3);
+                int this_choose_number=getRand(0,6);
                 int number_in_first_for=0;
                 int choose_show_name_or_type=getRand(1,2)-1;
                 bool pass_all=true;
@@ -814,6 +868,10 @@ int main()
                 string user_result;
                 cin>>user_result;
                 bool is_true=false;
+                if (user_result=="-20")
+                {
+                    goto new_start;
+                }
                 if (user_result=="A")
                 {
                     if (A_to_what==1&&true_number==1)
