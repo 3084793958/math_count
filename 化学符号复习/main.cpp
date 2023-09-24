@@ -340,22 +340,37 @@ int main()
     show_one_name.push_back("氯酸钾");
     show_one_type.push_back("KCl");
     show_one_name.push_back("氯化钾");
-    show_as_text.push_back({"红磷燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","红磷","氧气","点燃","五氧化二磷","[红磷]+[氧气]--[点燃]-->[五氧化二磷]"});
-    show_as_text.push_back({"木炭在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","碳","氧气","点燃","二氧化碳","[碳]+[氧气]--[点燃]-->[二氧化碳]"});
-    show_as_text.push_back({"硫燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","硫","氧气","点燃","二氧化硫","[硫]+[氧气]--[点燃]-->[二氧化硫]"});
-    show_as_text.push_back({"铁丝在氧气中燃烧化学文字表达式([2]写氧气):[1]+[2]--[3]-->[4]","铁","氧气","点燃","四氧化三铁","[铁]+[氧气]--[点燃]-->[四氧化三铁]"});
-    show_as_text.push_back({"高氧化锰制取氧气化学文字表达式([4]写二氧化锰,[5]写氧气):[1]--[2]-->[3]+[4]+[5]","高锰酸钾","加热","锰酸钾","二氧化锰","氧气","[高锰酸钾]--[加热]-->[锰酸钾]+[二氧化锰]+[氧气]"});
-    show_as_text.push_back({"过氧化氢制取氧气化学文字表达式([4]写氧气):[1]--[2]-->[3]+[4]","过氧化氢","二氧化锰","水","氧气","[过氧化氢]--[二氧化锰]-->[水]+[氧气]"});
-    show_as_text.push_back({"氯酸钾制取氧气化学文字表达式([5]写氧气):[1]--[2]/[3]-->[4]+[5]","氯酸钾","二氧化锰","加热","氯化钾","氧气","[氯酸钾]--[二氧化锰]/[加热]-->[氯化钾]+[氧气]"});
-    show_as_type.push_back({"红磷燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","P","O2","点燃","P2O5","[P]+[O2]--[点燃]-->[P2O5]"});
-    show_as_type.push_back({"木炭在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","C","O2","点燃","CO2","[C]+[O2]--[点燃]-->[CO2]"});
-    show_as_type.push_back({"硫燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","S","O2","点燃","SO2","[S]+[O2]--[点燃]-->[SO2]"});
-    show_as_type.push_back({"铁丝在氧气中燃烧化学表达式([2]写O2):[1]+[2]--[3]-->[4]","Fe","O2","点燃","Fe3O4","[Fe]+[O2]--[点燃]-->[Fe3O4]"});
-    show_as_type.push_back({"高氧化锰制取氧气化学表达式([4]写MnO2,[5]写O2):[1]--[2]-->[3]+[4]+[5]","KMnO4","加热","K2MnO4","MnO2","O2","[KMnO4]--[加热]-->[K2MnO4]+[MnO2]+[O2]"});
-    show_as_type.push_back({"过氧化氢制取氧气文字表达式([4]写O2):[1]--[2]-->[3]+[4]","H2O2","MnO2","H2O","O2","[H2O2]--[MnO2]-->[H2O]+[O2]"});
-    show_as_type.push_back({"氯酸钾制取氧气文字表达式([5]写O2):[1]--[2]/[3]-->[4]+[5]","KClO3","MnO2","加热","KCl","O2","[KClO3]--[MnO2]/[加热]-->[KCl]+[O2]"});
+    show_as_text.push_back({"红磷燃烧化学文字表达式([2]写*气):[1]+[2]--[3]-->[4]","红磷","氧气","点燃","五氧化二磷","[红磷]+[氧气]--[点燃]-->[五氧化二磷]"});
+    show_as_text.push_back({"木炭在氧气中燃烧化学文字表达式([2]写*气):[1]+[2]--[3]-->[4]","碳","氧气","点燃","二氧化碳","[碳]+[氧气]--[点燃]-->[二氧化碳]"});
+    show_as_text.push_back({"硫燃烧化学文字表达式([2]写*气):[1]+[2]--[3]-->[4]","硫","氧气","点燃","二氧化硫","[硫]+[氧气]--[点燃]-->[二氧化硫]"});
+    show_as_text.push_back({"铁丝在氧气中燃烧化学文字表达式([2]写*气):[1]+[2]--[3]-->[4]","铁","氧气","点燃","四氧化三铁","[铁]+[氧气]--[点燃]-->[四氧化三铁]"});
+    show_as_text.push_back({"高锰酸钾制取氧气化学文字表达式([4]写二*,[5]写*气):[1]--[2]-->[3]+[4]+[5]","高锰酸钾","加热","锰酸钾","二氧化锰","氧气","[高锰酸钾]--[加热]-->[锰酸钾]+[二氧化锰]+[氧气]"});
+    show_as_text.push_back({"过氧化氢制取氧气化学文字表达式([4]写*气):[1]--[2]-->[3]+[4]","过氧化氢","二氧化锰","水","氧气","[过氧化氢]--[二氧化锰]-->[水]+[氧气]"});
+    show_as_text.push_back({"氯酸钾制取氧气化学文字表达式([5]写*气):[1]--[2]/[3]-->[4]+[5]","氯酸钾","二氧化锰","加热","氯化钾","氧气","[氯酸钾]--[二氧化锰]/[加热]-->[氯化钾]+[氧气]"});
+    show_as_text.push_back({"取用一定量的液体药品用[1]和胶头[2],能作为热源的仪器是[3],不可用于直接加热的仪器有[4](烧杯,试管,坩埚钳),用于收集气体的是[5]","量筒","滴管","酒精灯","烧杯","集气瓶","取用一定量的液体药品用[量筒]和胶头[滴管],能作为热源的仪器是[酒精灯],不可用于直接加热的仪器有[烧杯](烧杯,试管,坩埚钳),用于收集气体的是[集气瓶]"});
+    show_as_type.push_back({"红磷燃烧化学方程式([2]写O2):[1]+[2]--[3]-->[4]","P","O2","点燃","P2O5","[P]+[O2]--[点燃]-->[P2O5]"});
+    show_as_type.push_back({"木炭在氧气中燃烧化学方程式([2]写*气):[1]+[2]--[3]-->[4]","C","O2","点燃","CO2","[C]+[O2]--[点燃]-->[CO2]"});
+    show_as_type.push_back({"硫燃烧化学方程式([2]写*气):[1]+[2]--[3]-->[4]","S","O2","点燃","SO2","[S]+[O2]--[点燃]-->[SO2]"});
+    show_as_type.push_back({"铁丝在氧气中燃烧化学方程式([2]写*气):[1]+[2]--[3]-->[4]","Fe","O2","点燃","Fe3O4","[Fe]+[O2]--[点燃]-->[Fe3O4]"});
+    show_as_type.push_back({"高锰酸钾制取氧气化学方程式([4]写二*,[5]写*气):[1]--[2]-->[3]+[4]+[5]","KMnO4","加热","K2MnO4","MnO2","O2","[KMnO4]--[加热]-->[K2MnO4]+[MnO2]+[O2]"});
+    show_as_type.push_back({"过氧化氢制取氧气化学方程式([4]写*气):[1]--[2]-->[3]+[4]","H2O2","MnO2","H2O","O2","[H2O2]--[MnO2]-->[H2O]+[O2]"});
+    show_as_type.push_back({"氯酸钾制取氧气化学方程式([5]写*气):[1]--[2]/[3]-->[4]+[5]","KClO3","MnO2","加热","KCl","O2","[KClO3]--[MnO2]/[加热]-->[KCl]+[O2]"});
+    show_as_type.push_back({"量取液体药品时,[1]先放平,视线要与[2]内[3]保持[4]","量筒","量筒","凹液面的最低处","水平","量取液体药品时,[量筒]先放平,视线要与[量筒]内[凹液面的最低处]保持[水平]"});
     choose_A_B_C_D.push_back({"硫在氧气中燃烧是化学反应的主要依据","硫粉逐渐减少","发出明亮的蓝紫色火焰","生成有刺激性气味的气体","放出大量的热","3","硫在氧气中燃烧是化学反应的主要依据\n生成有刺激性气味的气体(描述新产物)"});
     choose_A_B_C_D.push_back({"下列关于氧气的化学性质实验现象的描述,正确的是","磷在氧气中燃烧生成大量的烟雾","木炭在氧气中燃烧生成二氧化碳","硫在氧气中燃烧发出淡蓝色的火焰","放出大量的热","4","下列关于氧气的化学性质实验现象的描述,正确的是\n磷在氧气中燃烧生成大量的烟雾(不能说烟雾,只能说白烟)\n木炭在氧气中燃烧生成二氧化碳(二氧化碳看不见)\n硫在氧气中燃烧发出淡蓝色的火焰(在空气中)"});
+    choose_A_B_C_D.push_back({"下列物质的用途主要由化学性质决定的是","用石墨作电极","用金刚石作玻璃刀的刀头","粮食酿酒","用铁锅炒菜","3","下列物质的用途主要由化学性质决定的是\n粮食酿酒(产生新物质,化学变化)"});
+    choose_A_B_C_D.push_back({"用量筒量取12ml水,采用俯视读数,则实际取水量为","小于12ml","12ml","大于12ml","无法估计","1","用量筒量取12ml水,采用俯视读数,则实际取水量为\n小于12ml(俯视读数,读取值偏大,则实际值偏小)"});
+    list<string> one_to_one_img,one_to_one_name;
+    one_to_one_img.push_back("|====================|\n|                    |\n|....................|\n|....................|\n|____________________|");
+    one_to_one_name.push_back("水槽");
+    one_to_one_img.push_back("|========-\n|       /\n|       |\n|       |\n|_______|\n");
+    one_to_one_name.push_back("烧杯");
+    one_to_one_img.push_back("()\n||\n||\n||\n||\n||\n[]\n");
+    one_to_one_name.push_back("药匙");
+    one_to_one_img.push_back(" |==|\n |  |\n |_ |\n |_ |\n |_ |\n |_ |\n |_ |\n |  |\n_====_\n");
+    one_to_one_name.push_back("量筒");
+    one_to_one_img.push_back(" _|==|_\n|      |\n|      |\n|      |\n|      |\n|______|");
+    one_to_one_name.push_back("集气瓶");
     cout<<"输入模式1:字母2:文字3:混合4:卷-20:退出"<<endl;
     string choose_type;
     string choose_type_2;
@@ -539,10 +554,10 @@ int main()
     {
         while (time<30)
         {
-            int random_number=getRand(1,3)-1;
+            int random_number=getRand(1,4)-1;
             if (random_number==0)
             {
-                int this_choose_number=getRand(0,16);
+                int this_choose_number=getRand(0,14);
                 int choose_way_to_do=getRand(1,2)-1;
             string send_string;
             string other_string;
@@ -602,7 +617,7 @@ int main()
             }
             else if (random_number==1)
             {
-                int this_choose_number=getRand(0,6);
+                int this_choose_number=getRand(0,7);
                 int number_in_first_for=0;
                 int choose_show_name_or_type=getRand(1,2)-1;
                 bool pass_all=true;
@@ -868,10 +883,75 @@ int main()
                 string user_result;
                 cin>>user_result;
                 bool is_true=false;
+                string what_number="Null";
                 if (user_result=="-20")
                 {
                     goto new_start;
                 }
+                if (A_to_what==1&&true_number==1)
+                    {
+                        what_number="A";
+                    }
+                    if (B_to_what==1&&true_number==2)
+                    {
+                        what_number="A";
+                    }
+                    if (C_to_what==1&&true_number==3)
+                    {
+                        what_number="A";
+                    }
+                    if (D_to_what==1&&true_number==4)
+                    {
+                        what_number="A";
+                    }
+                    if (A_to_what==2&&true_number==1)
+                    {
+                        what_number="B";
+                    }
+                    if (B_to_what==2&&true_number==2)
+                    {
+                        what_number="B";
+                    }
+                    if (C_to_what==2&&true_number==3)
+                    {
+                        what_number="B";
+                    }
+                    if (D_to_what==2&&true_number==4)
+                    {
+                        what_number="B";
+                    }
+                    if (A_to_what==3&&true_number==1)
+                    {
+                        what_number="C";
+                    }
+                    if (B_to_what==3&&true_number==2)
+                    {
+                        what_number="C";
+                    }
+                    if (C_to_what==3&&true_number==3)
+                    {
+                        what_number="C";
+                    }
+                    if (D_to_what==3&&true_number==4)
+                    {
+                        what_number="C";
+                    }
+                    if (A_to_what==4&&true_number==1)
+                    {
+                        what_number="D";
+                    }
+                    if (B_to_what==4&&true_number==2)
+                    {
+                        what_number="D";
+                    }
+                    if (C_to_what==4&&true_number==3)
+                    {
+                        what_number="D";
+                    }
+                    if (D_to_what==4&&true_number==4)
+                    {
+                        what_number="D";
+                    }
                 if (user_result=="A")
                 {
                     if (A_to_what==1&&true_number==1)
@@ -952,7 +1032,7 @@ int main()
                 {
                     cout<<"正确"<<endl;
                     cout<<"=========="<<endl;
-                    cout<<need_all<<endl;
+                    cout<<"正确答案:"<<what_number<<endl<<need_all<<endl;
                     cout<<"=========="<<endl;
                     if (choose_type_2=="2")
                     {
@@ -964,7 +1044,7 @@ int main()
                 {
                     cout<<"错误"<<endl;
                     cout<<"=========="<<endl;
-                    cout<<need_all<<endl;
+                    cout<<"正确答案:"<<what_number<<endl<<need_all<<endl;
                     cout<<"=========="<<endl;
                     int name_number=0;
                     while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
@@ -978,6 +1058,55 @@ int main()
                         time++;
                     }
                 }
+            }
+            else if (random_number==3)
+            {
+            int this_choose_number=getRand(0,4);
+            string send_string;
+            string other_string;
+            list<string>::iterator chinese_type=one_to_one_img.begin();
+            list<string>::iterator type_type=one_to_one_name.begin();
+            advance(type_type,this_choose_number);
+            advance(chinese_type,this_choose_number);
+            send_string=*chinese_type;
+            other_string=*type_type;
+            cout<<"输入仪器名称"<<endl;
+            cout<<send_string<<endl;
+            string result_string;
+            cin>>result_string;
+            if (result_string=="-20")
+            {
+                goto new_start;
+            }
+            else if (result_string==other_string)
+            {
+                cout<<"正确"<<endl<<"=========="<<endl;
+                if (choose_type_2=="2")
+                {
+                    point++;
+                    time++;
+                }
+            }
+            else
+            {
+                cout<<"错误"<<endl;
+                cout<<send_string<<endl<<other_string<<endl<<"=========="<<endl;
+                if (choose_type_2=="2")
+                {
+                    point--;
+                    time++;
+                }
+                int name_number=0;
+                while (!(name_number<=49&&name_number>=1&&name_number!=22&&name_number!=26&&name_number!=34))
+                {
+                    name_number=getRand(0,49);
+                }
+                cout<<"搞什么,"<<name_map[name_number]<<"连图都会画了!快点!"<<endl<<"=========="<<endl;
+            }
+            if (choose_type_2=="2")
+            {
+                cout<<"次数:"<<time<<endl<<"分数:"<<point<<endl<<"=========="<<endl;
+            }
             }
             if (choose_type_2=="2")
             {
